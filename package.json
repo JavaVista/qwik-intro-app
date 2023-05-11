@@ -11,37 +11,12 @@
     "build.types": "tsc --incremental --noEmit",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    
     "deploy": "echo 'Run \"npm run qwik add\" to install a server adaptor'",
-
-
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
-
-
     "qwik": "qwik"
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   "devDependencies": {
     "@builder.io/qwik": "0.104.0",
     "@builder.io/qwik-city": "0.104.0",
