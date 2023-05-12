@@ -1,8 +1,8 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
+import { DisplayText } from '~/components/display-text/display-text';
 
 export default component$(() => {
-
-
+  const messageSignal = useSignal('')
 
   return <div>
     This is Page 1
@@ -10,11 +10,11 @@ export default component$(() => {
     <hr />
 
     <input type="text" placeholder="Type your search" onInput$={(e: InputEvent) => {
-      console.log((e.target as HTMLInputElement).value)
+      messageSignal.value = (e.target as HTMLInputElement).value;
     }} />
 
     <hr />
 
-    <div>You typed: </div>
+    <DisplayText message={messageSignal.value} />
   </div>
 });

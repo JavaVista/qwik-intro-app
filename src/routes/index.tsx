@@ -1,19 +1,21 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useSignal } from '@builder.io/qwik';
 
 
 export default component$(() => {
+  const isVisibleSignal = useSignal(false);
+
   return (
     <>
-      <Display />
-      <div>
-        Hola Mundo!
-      </div>
-      <button onClick$={() => console.log('Hola')}>Heya!</button>
+      <button onClick$={() => {
+        isVisibleSignal.value = !isVisibleSignal.value;
+      }}>Heya!</button>
+
+      {isVisibleSignal.value ? <Display /> : null}
     </>
 
   );
 });
 
 export const Display = component$(() => {
-  return <div>Hey!</div>
+  return <div>I am visible!</div>;
 });
