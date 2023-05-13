@@ -1,5 +1,5 @@
 import { component$, useSignal } from '@builder.io/qwik';
-import { DisplayText } from '~/components/display-text/display-text';
+import { DisplayText } from '~/components/display-text/displayText';
 
 export default component$(() => {
   const messageSignal = useSignal('')
@@ -15,6 +15,8 @@ export default component$(() => {
 
     <hr />
 
-    <DisplayText message={messageSignal.value} />
+    <DisplayText message={messageSignal.value} >
+      Your message is:
+    </DisplayText>
   </div>
 });

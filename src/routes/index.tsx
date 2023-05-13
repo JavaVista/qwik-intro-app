@@ -1,4 +1,4 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$, Slot, useSignal } from '@builder.io/qwik';
 
 
 export default component$(() => {
@@ -10,12 +10,15 @@ export default component$(() => {
         isVisibleSignal.value = !isVisibleSignal.value;
       }}>Heya!</button>
 
-      {isVisibleSignal.value ? <Display /> : null}
+      {isVisibleSignal.value ? <Display>Projecting this...</Display> : null}
     </>
 
   );
 });
 
 export const Display = component$(() => {
-  return <div>I am visible!</div>;
+  return <div>
+    <div>I am visible!</div>
+    <Slot />
+  </div>;
 });
