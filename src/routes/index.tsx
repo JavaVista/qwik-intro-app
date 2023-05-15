@@ -32,12 +32,16 @@ interface BeerGiveProps {
 }
 
 export const BeerHandler = component$((props: BeerGiveProps) => {
+  return <BeerHandlerButton gotABeerSignal={props.gotABeerSignal}/>
+});
+
+export const BeerHandlerButton = component$((props: { gotABeerSignal: Signal<boolean> }) => {
   return <div>
-    <button onClick$={() => {
-      props.gotABeerSignal.value = true;
-    }
-    } >Give me a Beer</button>
-  </div>;
+  <button onClick$={() => {
+    props.gotABeerSignal.value = true;
+  }
+  } >Give me a Beer</button>
+</div>;
 });
 
 export const Display = component$(() => {
