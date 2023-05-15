@@ -1,17 +1,27 @@
-import { component$, useSignal, useTask$ } from '@builder.io/qwik';
+import { component$, useContextProvider, useSignal, useTask$ } from '@builder.io/qwik';
 import { DisplayText } from '~/components/display-text/displayText';
+import { messagesContextId } from '~/message-context.id';
+//import { colorContextId, messageContextId } from '~/message-context.id';
 
 export default component$(() => {
   const messageSignal = useSignal('');
-  const customColor = useSignal('');
+  const colorSignal = useSignal('');
+
+  // useContextProvider(messageContextId, messageSignal);
+  // useContextProvider(colorContextId, customColor);
+
+  useContextProvider(messagesContextId, {
+    messageSignal,
+    colorSignal
+  });
 
   useTask$(({track}) => {
     track(() => messageSignal.value);
 
     if(messageSignal.value === 'llama'){
-      customColor.value = 'red';
+      colorSignal.value = 'red';
     } else {
-      customColor.value = 'black';
+      colorSignal.value = 'black';
     }
   })
 
@@ -28,7 +38,7 @@ export default component$(() => {
 
     <hr />
 
-    <DisplayText message={messageSignal.value} customColor={customColor.value} >
+    <DisplayText >
       Your message is:
     </DisplayText>
   </div>
