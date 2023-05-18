@@ -1,5 +1,6 @@
 import { component$, Slot, useContext, useContextProvider, useSignal, useTask$ } from '@builder.io/qwik';
 import { beerContextId } from '~/beer-context-id';
+import { BeerSelector } from './beer-selector';
 
 /* 
 context: 
@@ -30,7 +31,6 @@ export default component$(() => {
       }}>Heya!</button> */}
 
       <BeerHandler />
-
       {isVisibleSignal.value ? <Display>Projecting this...</Display> : null}
     </>
 
@@ -42,7 +42,12 @@ export default component$(() => {
 // }
 
 export const BeerHandler = component$(() => {
-  return <BeerHandlerButton />
+  return <div>
+    <BeerSelector />
+    <hr />
+    <BeerHandlerButton />
+  </div>
+
 });
 
 export const BeerHandlerButton = component$(() => {
