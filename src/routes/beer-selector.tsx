@@ -1,11 +1,16 @@
-import { component$, Resource, useResource$ } from "@builder.io/qwik";
+import { component$, Resource, useResource$, useStyles$, useStylesScoped$ } from "@builder.io/qwik";
 // the beers.json is from sample api √https://sampleapis.com/api-list
 // mock server api url http://localhost:5173/api/beers
+import styles from "./beer-selector.css?inline"
+
 export interface Beer {
     name: string;
 }
 
 export const BeerSelector = component$(() => {
+
+    // useStyles$(styles)
+    useStylesScoped$(styles) // for making sure is scoped to the one component
 
     const beersResource = useResource$<Beer[]>(async () => {
         const result = await fetch('http://localhost:5173/api/beers');
