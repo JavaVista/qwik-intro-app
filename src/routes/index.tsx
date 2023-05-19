@@ -53,7 +53,7 @@ export const BeerHandler = component$(() => {
 export const BeerHandlerButton = component$(() => {
   const gotABeerSignal = useContext(beerContextId);
   return <div>
-    <button onClick$={() => {
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 rounded-full" onClick$={() => {
       gotABeerSignal.value = true;
     }
     } >Give me a Beer</button>

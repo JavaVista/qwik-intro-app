@@ -1,4 +1,4 @@
-import { component$, Resource, useResource$, useStyles$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, Resource, useResource$, useStylesScoped$ } from "@builder.io/qwik";
 // the beers.json is from sample api √https://sampleapis.com/api-list
 // mock server api url http://localhost:5173/api/beers
 import styles from "./beer-selector.css?inline"
